@@ -261,6 +261,10 @@ Filename: "{tmp}\7za.exe"; Parameters: "x -y {tmp}\jre.zip"; WorkingDir: "{app}"
 Filename: "{app}\jre\bin\javaw.exe"; Parameters: "-Xmx512M -jar ""{app}\{#MainJarFile}"""; Description: "{cm:LaunchProgram,{#AppName}}"; Flags: nowait postinstall skipifsilent
 
 [UninstallDelete]
+; Installer files
 Type: filesandordirs; Name: "{app}\jre"
 Type: filesandordirs; Name: "{userappdata}\.minecraft\{#AppDir}"
 Type: filesandordirs; Name: "{userappdata}\.minecraft\{#AppDir}\javafx"
+; Installer + Launcher files
+Type: filesandordirs; Name: "{userappdata}\.minecraft\launcher_profiles.json.skbak"
+Type: filesandordirs; Name: "{userappdata}\.minecraft\sklauncher-fx.jar"
