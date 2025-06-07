@@ -128,6 +128,14 @@ end;
 
 procedure RenameJRE;
 begin
+  if DirExists(ExpandConstant('{app}\\jre')) then begin
+    Log('Deleting old jre directory');
+    if not DelTree(ExpandConstant('{app}\\jre'), True, True, True) then begin
+      Log('Failed to delete old jre folder');
+      Exit;
+    end;
+  end;
+
   Log('Renaming jre directory');
   if not RenameFile(ExpandConstant('{app}\\{#JREFolder}'), ExpandConstant('{app}\\jre')) then begin
     Log('Failed to rename jre folder');
